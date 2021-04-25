@@ -1,0 +1,24 @@
+{
+  "specName": "SearchTest.spec.js",
+  "title": "Filter search results by bed 1 - 3",
+  "suiteName": "Search for a Rental Test",
+  "testName": "Search for a Rental Test Filter search results by bed 1 - 3",
+  "testError": "expected 2 to equal 3",
+  "testCommands": [
+    "viewport macbook-13",
+    "get a[title='Beds']",
+    "click {animationdistancethreshold: 20}",
+    "get .minBedOptions.active>li[data-value=1]",
+    "click {force: true, animationdistancethreshold: 20}",
+    "new url https://www.apartments.com/irvine-ca/?bb=umsl283jjN_5yqjtH",
+    "xhr  POST https://www.apartments.com/services/search/",
+    "get .cell-xs-6.maxBedsInput.active>div.btn-group.bootstrap-select.max-beds-select>button",
+    "click {force: true, animationdistancethreshold: 20}",
+    "xhr  POST https://www.apartments.com/services/search/",
+    "get .maxBedOptions.active>li[data-value=3]",
+    "click {force: true, animationdistancethreshold: 20}",
+    "xhr  POST https://www.apartments.com/services/search/",
+    "get .bed-range",
+    "assert expected **2** to equal **3**"
+  ]
+}

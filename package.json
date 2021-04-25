@@ -1,0 +1,30 @@
+{
+  "name": "cypress-pom-javascript",
+  "version": "1.0.0",
+  "description": "UI automation of apartments.com with CYPRESS and JAVASCRIPT",
+  "main": "index.js",
+  "scripts": {
+    "cy:open": "npx cypress open",
+    "cy:run": "npx cypress run",
+    "cy:run:chrome": "cypress run --browser chrome",
+    "cy:run:firefox": "cypress run --browser firefox",
+    "cy:run:electron": "cypress run --browser electron",
+    "cy:snapshot": "cypress run --env updateSnapshots=true",
+    "cy:run-dashboard": "cypress run --record --key 7a689be8-3c77-4876-a557-65f0081d7b44"
+  },
+  "author": "Angela Tong",
+  "license": "ISC",
+  "dependencies": {
+    "@percy/cli": "^1.0.0-beta.48",
+    "@percy/cypress": "^3.1.0",
+    "cypress": "^7.1.0",
+    "cypress-cucumber-preprocessor": "^4.0.3",
+    "cypress-image-snapshot": "^4.0.1",
+    "cypress-xpath": "^1.6.2",
+    "eslint-plugin-cypress": "^2.11.2",
+    "prettier": "^2.2.1"
+  },
+  "devDependencies": {
+    "cypress-failed-log": "^2.9.1"
+  }
+}
