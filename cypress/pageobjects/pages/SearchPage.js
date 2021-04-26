@@ -112,4 +112,34 @@ export default class SearchPage extends BasePage{
 
     }
 
+    static filterByMoveInDate() {
+        //Move in first of next month or two months from now
+        cy.get("a[title='moveInDate']>span>i.storyicon.down2StoryIcon").click()
+        cy.wait(5000)
+        cy.xpath(".//div[@class='datepicker dropdown-menu inline active']/div[@class='datepicker-days' and @style='display: block;']/table/thead/tr[1]/th[@class='next']").click()
+        cy.xpath(".//div[@id='datepickerSearch' and @class='active']//tbody/tr[1]/td[@class='day ' and contains(text(), '1')]").click()
+        let d = new Date();
+        let monthnum = d.getMonth() + 1
+        cy.log(monthnum)
+        let m_names = ['January', 'February', 'March', 
+               'April', 'May', 'June', 'July', 
+               'August', 'September', 'October', 'November', 'December'];
+        let month = m_names[monthnum]
+        cy.log(month)
+        let year = d.getFullYear()
+        cy.log(year)
+        let nextmonthdate = month+" "+year
+        cy.log(nextmonthdate)
+        cy.xpath(".//div[@id='datepickerSearch']//table/thead/tr/th[contains(text(), '" + nextmonthdate + "')]").click()
+        cy.get(".availability").each(($el, index, $list) => {
+            let available = $el.text()
+            expect(available).to.include("Avail.")
+        })
+        cy.get(".month[text='Jun']").click()
+        cy.get(".availability").each(($el, index, $list) => {
+            let available = $el.text()
+            expect(available).to.include("Avail.")
+        })
+    }
+
 }
