@@ -175,20 +175,19 @@ export default class SearchPage extends BasePage{
             }
         })
 
-        let str = ''
-        cy.get("label[for='Senior Housing']>.facetCount").then(($result) => {
+ 
+        cy.get(".count").then(($result) => {
+           let str = ''
            str = $result.text()
+           str=str.replace(',','')
+           str = str.replace(' Apartments Available', '')
+           cy.log(str)
+           cy.get("input[id='Senior Housing']").click({force:true})
+           cy.get(".property-information>.property-link>.property-title>.js-placardTitle.title").then(($el) => {
+                cy.contains('Senior')
+            })
+            cy.get(".property-information").should('have.length', str)
         })
-        cy.log(str)
-        let seniorhousingresults = str.slice(1)
-        cy.get("input[id='Senior Housing']").click({force:true})
-        cy.get(".property-information>.property-link>.property-title>.js-placardTitle.title").then(($el) => {
-            cy.contains('Senior')
-        })
-        cy.get(".property-information").should('have.length', 7)
-        
-
-        
 
     }
 }

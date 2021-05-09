@@ -3,7 +3,7 @@
   "title": "Filter by Lifestyle",
   "suiteName": "Search for a Rental Test",
   "testName": "Search for a Rental Test Filter by Lifestyle",
-  "testError": "Timed out retrying after 5000ms: Not enough elements found. Found '1', expected '7'.",
+  "testError": "Timed out retrying after 5000ms: Not enough elements found. Found '1', expected '2987'.",
   "testCommands": [
     "viewport macbook-13",
     "get #lifestyleSelect",
@@ -14,8 +14,8 @@
     "contains Short Term ",
     "contains Military Housing ",
     "contains Corporate Housing ",
-    "get label[for='Senior Housing']>.facetCount",
-    "log ",
+    "get .count",
+    "log  2987",
     "get input[id='Senior Housing']",
     "click {force: true, animationdistancethreshold: 20}",
     "xhr  POST https://www.apartments.com/services/search/",
@@ -23,7 +23,7 @@
     "get .property-information>.property-link>.property-title>.js-placardTitle.title",
     "contains Senior",
     "get .property-information",
-    "assert expected **[ <div.property-information>, 24 more... ]** to have a length of **7** but got **25**",
+    "assert expected **[ <div.property-information>, 24 more... ]** to have a length of **2987** but got **25**",
     "new url https://www.apartments.com/irvine-ca/senior-housing/?bb=w-0lr7h7jNt5i3i9O"
   ]
 }
