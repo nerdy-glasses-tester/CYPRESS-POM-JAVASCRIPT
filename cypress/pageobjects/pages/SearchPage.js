@@ -175,19 +175,22 @@ export default class SearchPage extends BasePage{
             }
         })
 
- 
-        cy.get(".count").then(($result) => {
-           let str = ''
-           str = $result.text()
-           str=str.replace(',','')
-           str = str.replace(' Apartments Available', '')
-           cy.log(str)
-           cy.get("input[id='Senior Housing']").click({force:true})
-           cy.get(".property-information>.property-link>.property-title>.js-placardTitle.title").then(($el) => {
-                cy.contains('Senior')
+        cy.get("input[id='Senior Housing']").click({force:true}).then(($senior) =>{
+            cy.get(".checkAvailability.btn", {timeout: 5000}).should('be.visible')
+            cy.wait(5000) // need hard wait because explicit wait didn't wait long enough
+            cy.get(".count[id=mapResultBox]", {timeout: 3000}).should('be.visible').then(($result) => {
+               let str = ''
+               str = $result.text()
+               str=str.replace(',','')
+               str = str.replace('Senior Apartments Available', '')
+               cy.log(str)
+               cy.get(".property-information>.property-link>.property-title>.js-placardTitle.title").then(($el) => {
+                    cy.contains('Senior')
+                    cy.get(".property-title").should('have.length', str)
+                })
             })
-            cy.get(".property-information").should('have.length', str)
         })
+       
 
     }
 }

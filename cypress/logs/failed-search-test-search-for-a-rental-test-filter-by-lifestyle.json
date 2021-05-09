@@ -3,7 +3,7 @@
   "title": "Filter by Lifestyle",
   "suiteName": "Search for a Rental Test",
   "testName": "Search for a Rental Test Filter by Lifestyle",
-  "testError": "Timed out retrying after 5000ms: Not enough elements found. Found '1', expected '2987'.",
+  "testError": "Timed out retrying after 5000ms: Not enough elements found. Found '1', expected '7'.",
   "testCommands": [
     "viewport macbook-13",
     "get #lifestyleSelect",
@@ -14,15 +14,19 @@
     "contains Short Term ",
     "contains Military Housing ",
     "contains Corporate Housing ",
-    "get .count",
-    "log 2987",
     "get input[id='Senior Housing']",
     "click {force: true, animationdistancethreshold: 20}",
     "xhr  POST https://www.apartments.com/services/search/",
+    "get .checkAvailability.btn",
+    "assert expected **[ <button.checkAvailability.btn>, 24 more... ]** to be **visible**",
+    "wait 5000",
+    "new url https://www.apartments.com/irvine-ca/senior-housing/?bb=8hl_34lyiN7rk7o3D",
+    "get .count[id=mapResultBox]",
+    "assert expected **<h3#mapResultBox.count>** to be **visible**",
+    "log 7 ",
     "get .property-information>.property-link>.property-title>.js-placardTitle.title",
     "contains Senior",
-    "get .property-information",
-    "assert expected **[ <div.property-information>, 24 more... ]** to have a length of **2987** but got **25**",
-    "new url https://www.apartments.com/irvine-ca/senior-housing/?bb=w-0lr7h7jNt5i3i9O"
+    "get .property-title",
+    "assert expected **<div.property-title>** to have a length of **7** but got **1**"
   ]
 }
