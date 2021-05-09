@@ -29,7 +29,7 @@ describe('Search for a Rental Test', () => {
         SearchPage.filterByMoveInDate()
     })
 
-    it.only('Filter by Lifestyle', () => {
+    it('Filter by Lifestyle', () => {
         BasePage.setDesktopViewport()
         SearchPage.filterByLifeStyle()
     })
