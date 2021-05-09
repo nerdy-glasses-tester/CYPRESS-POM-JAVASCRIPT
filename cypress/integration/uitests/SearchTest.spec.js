@@ -1,4 +1,4 @@
-import {url, keyword, housingtype, minPrice, maxPrice, minBed, maxBed} from '../../config'
+import {url, keyword, housingtype, minPrice, maxPrice, minBed, maxBed, lifestyle} from '../../config'
 import BasePage from '../../pageobjects/BasePage'
 import SearchPage from '../../pageobjects/pages/SearchPage'
 
@@ -29,9 +29,9 @@ describe('Search for a Rental Test', () => {
         SearchPage.filterByMoveInDate()
     })
 
-    it('Filter by Lifestyle', () => {
+    it(`Filter by Lifestyle by ${lifestyle}`, () => {
         BasePage.setDesktopViewport()
-        SearchPage.filterByLifeStyle()
+        SearchPage.filterByLifeStyle(lifestyle)
     })
 
 })

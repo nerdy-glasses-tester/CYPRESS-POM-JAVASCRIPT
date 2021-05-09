@@ -5,4 +5,4 @@ export const minPrice = 1700
 export const maxPrice = 4000
 export const minBed = 1
 export const maxBed = 3
-
+export const lifestyle = 'Senior Housing'

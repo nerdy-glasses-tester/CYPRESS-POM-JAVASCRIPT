@@ -149,7 +149,7 @@ export default class SearchPage extends BasePage{
 
     }
 
-    static filterByLifeStyle() {
+    static filterByLifeStyle(lifestyle) {
         cy.get("#lifestyleSelect").click({force:true})
         cy.get("input[type='radio'][name='lifestyle-select']").each(($el, index, $list) => {
           
@@ -175,14 +175,34 @@ export default class SearchPage extends BasePage{
             }
         })
 
-        cy.get("input[id='Senior Housing']").click({force:true}).then(($senior) =>{
+        cy.get("input[id='"+lifestyle+"']").click({force:true}).then(($lifestyle) =>{
             cy.get(".checkAvailability.btn", {timeout: 5000}).should('be.visible')
             cy.wait(5000) // need hard wait because explicit wait didn't wait long enough
             cy.get(".count[id=mapResultBox]", {timeout: 3000}).should('be.visible').then(($result) => {
                let str = ''
                str = $result.text()
                str=str.replace(',','')
-               str = str.replace('Senior Apartments Available', '')
+               if(lifestyle==='Student Housing')
+               {
+                str = str.replace(' Student Apartments Available', '')
+               }
+               else if(lifestyle==='Senior Housing')
+               {
+                str = str.replace(' Senior Apartments Available', '')
+               }
+               else if(lifestyle==='Short Term')
+               {
+                str = str.replace(' Short Term Rentals', '')
+               }
+               else if(lifestyle==='Military Housing')
+               {
+                str = str.replace(' Military Apartments Available', '')
+               }
+               else if(lifestyle==='Corporate Housing')
+               {
+                str = str.replace(' Corporate Apartments Available', '')
+               }
+ 
                cy.log(str)
                cy.get(".property-information>.property-link>.property-title>.js-placardTitle.title").then(($el) => {
                     cy.contains('Senior')
