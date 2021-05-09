@@ -64,7 +64,7 @@ export default class SearchPage extends BasePage{
        
 
         cy.get('a[id="typeSelect"]>i.clearIcon').click({force:true})
-        cy.wait(5000)
+        cy.get('a[id="typeSelect"]>i.clearIcon', {timeout: 3000}).should('have.attr','style','display: none;')
     }
 
     static filterByPrice(minPrice, maxPrice) {
@@ -88,7 +88,7 @@ export default class SearchPage extends BasePage{
         })
 
         cy.get('a[title="Price"]>i.clearIcon').click({force:true})
-        cy.wait(5000)
+        cy.get('a[title="Price"]>i.clearIcon', {timeout: 3000}).should('have.attr','style','display: none;')
     }
 
     static filterByBeds(minBed, maxBed){
@@ -108,7 +108,7 @@ export default class SearchPage extends BasePage{
         })
         
         cy.get('a[title="Beds"]>i.clearIcon').click({force:true})
-        cy.wait(5000)
+        cy.get('a[title="Beds"]>i.clearIcon', {timeout: 3000}).should('have.attr','style','display: none;')
 
     }
 
@@ -119,27 +119,35 @@ export default class SearchPage extends BasePage{
         cy.xpath(".//div[@class='datepicker dropdown-menu inline active']/div[@class='datepicker-days' and @style='display: block;']/table/thead/tr[1]/th[@class='next']").click()
         cy.xpath(".//div[@id='datepickerSearch' and @class='active']//tbody/tr[1]/td[@class='day ' and contains(text(), '1')]").click()
         let d = new Date();
-        let monthnum = d.getMonth() + 1
-        cy.log(monthnum)
+        let nextmonthnum = d.getMonth() + 1
+        cy.log(nextmonthnum)
         let m_names = ['January', 'February', 'March', 
                'April', 'May', 'June', 'July', 
                'August', 'September', 'October', 'November', 'December'];
-        let month = m_names[monthnum]
-        cy.log(month)
+        let m_names_short = ['Jan', 'Feb', 'Mar', 
+               'Apr', 'May', 'Jun', 'Jul', 
+               'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+        let nextmonth = m_names[nextmonthnum]
+        let nextmonthshort = m_names_short[nextmonthnum]
+        cy.log(nextmonthshort)
         let year = d.getFullYear()
         cy.log(year)
-        let nextmonthdate = month+" "+year
+        let nextmonthdate = nextmonth+" "+year
         cy.log(nextmonthdate)
         cy.xpath(".//div[@id='datepickerSearch']//table/thead/tr/th[contains(text(), '" + nextmonthdate + "')]").click()
         cy.get(".availability").each(($el, index, $list) => {
             let available = $el.text()
             expect(available).to.include("Avail.")
         })
-        cy.get(".month[text='Jun']").click()
         cy.get(".availability").each(($el, index, $list) => {
             let available = $el.text()
             expect(available).to.include("Avail.")
         })
+        cy.get("a[title='moveInDate']>i.clearIcon").click({force:true})
+        cy.get("a[title='moveInDate']>i.clearIcon", {timeout: 3000})
+        .should('have.attr', 'style', 'display: none;')
+
     }
+
 
 }

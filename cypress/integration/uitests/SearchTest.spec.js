@@ -24,7 +24,7 @@ describe('Search for a Rental Test', () => {
         SearchPage.filterByBeds(minBed, maxBed)
     })
 
-    it('Filter by move in date first of next month or two months from now', () => {
+    it.only('Filter by move in date first of next month or two months from now', () => {
         BasePage.setDesktopViewport()
         SearchPage.filterByMoveInDate()
     })
