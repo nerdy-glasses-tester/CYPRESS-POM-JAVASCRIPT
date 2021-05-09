@@ -149,5 +149,46 @@ export default class SearchPage extends BasePage{
 
     }
 
+    static filterByLifeStyle() {
+        cy.get("#lifestyleSelect").click({force:true})
+        cy.get("input[type='radio'][name='lifestyle-select']").each(($el, index, $list) => {
+          
+            if(index===0)
+            {
+                cy.contains('Student ')
+            }
+            else if (index===1)
+            {
+                cy.contains('Senior Housing ')
+            }
+            else if (index===2)
+            {
+                cy.contains('Short Term ')
+            }
+            else if (index===3)
+            {
+                cy.contains('Military Housing ')
+            }
+            else if (index===4)
+            {
+                cy.contains('Corporate Housing ')
+            }
+        })
 
+        let str = ''
+        cy.get("label[for='Senior Housing']>.facetCount").then(($result) => {
+           str = $result.text()
+        })
+        cy.log(str)
+        let seniorhousingresults = str.slice(1)
+        cy.get("input[id='Senior Housing']").click({force:true})
+        cy.get(".property-information>.property-link>.property-title>.js-placardTitle.title").then(($el) => {
+            cy.contains('Senior')
+        })
+        cy.get(".property-information").should('have.length', 7)
+        
+
+        
+
+    }
 }

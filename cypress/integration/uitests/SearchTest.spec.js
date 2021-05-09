@@ -24,9 +24,14 @@ describe('Search for a Rental Test', () => {
         SearchPage.filterByBeds(minBed, maxBed)
     })
 
-    it.only('Filter by move in date first of next month or two months from now', () => {
+    it('Filter by move in date first of next month or two months from now', () => {
         BasePage.setDesktopViewport()
         SearchPage.filterByMoveInDate()
+    })
+
+    it.only('Filter by Lifestyle', () => {
+        BasePage.setDesktopViewport()
+        SearchPage.filterByLifeStyle()
     })
 
 })
