@@ -1,9 +1,9 @@
 {
   "specName": "SearchTest.spec.js",
   "title": "Filter by Lifestyle by Senior Housing",
-  "suiteName": "Search for a Rental Test",
-  "testName": "Search for a Rental Test Filter by Lifestyle by Senior Housing",
-  "testError": "Timed out retrying after 5000ms: Not enough elements found. Found '1', expected '7'.",
+  "suiteName": "Search for a rental with filters test",
+  "testName": "Search for a rental with filters test Filter by Lifestyle by Senior Housing",
+  "testError": "Timed out retrying after 5000ms: Not enough elements found. Found '1', expected '6'.",
   "testCommands": [
     "viewport macbook-13",
     "get #lifestyleSelect",
@@ -24,10 +24,10 @@
     "new url https://www.apartments.com/irvine-ca/senior-housing/?bb=w-0lr7h7jNt5i3i9O",
     "get .count[id=mapResultBox]",
     "assert expected **<h3#mapResultBox.count>** to be **visible**",
-    "log 7",
+    "log 6",
     "get .property-information>.property-link>.property-title>.js-placardTitle.title",
     "contains Senior",
     "get .property-title",
-    "assert expected **<div.property-title>** to have a length of **7** but got **1**"
+    "assert expected **<div.property-title>** to have a length of **6** but got **1**"
   ]
 }

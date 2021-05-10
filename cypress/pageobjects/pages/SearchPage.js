@@ -209,6 +209,9 @@ export default class SearchPage extends BasePage{
                     cy.get(".property-title").should('have.length', str)
                 })
             })
+
+            cy.get("a[id='lifestyleSelect']>i.clearIcon").click({force:true})
+            cy.get("a[id='lifestyleSelect']>i.clearIcon", {timeout: 3000}).should('have.attr', 'style', 'display: none;')
         })
        
 

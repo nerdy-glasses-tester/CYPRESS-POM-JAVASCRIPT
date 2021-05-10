@@ -2,7 +2,7 @@ import {url, keyword, housingtype, minPrice, maxPrice, minBed, maxBed, lifestyle
 import BasePage from '../../pageobjects/BasePage'
 import SearchPage from '../../pageobjects/pages/SearchPage'
 
-describe('Search for a Rental Test', () => {
+describe('Search for a rental with filters test', () => {
     before(function() {
         cy.visit(url)
         SearchPage.search(keyword)
