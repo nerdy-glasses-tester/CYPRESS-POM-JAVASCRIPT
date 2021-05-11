@@ -1,5 +1,6 @@
 # CYPRESS-POM-JAVASCRIPT
 This is a sample Cypress Javascript project to automate apartments.com web app.
+
 This is a work in progress project.
 
 Installation Steps: 
