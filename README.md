@@ -21,3 +21,10 @@ Installation Steps:
 16.	Or in VSCode Terminal>Type npx cypress run (to run in Electron browser and get logs and video and screenshots)
 17.	Or in VSCode Terminal>Type npx cypress run - - browser chrome (passes gets logs and video and screenshots)
 18.	Or in VSCode Terminal>Type npx cypress run - - browser firefox (1 test keeps failing but it passes in reality so false failure but runs well in npx cypress open though; Still looking into resolving it.)
+
+OPTIONAL – my project is not using at moment though have installed
+19.	In VSCode Terminal>Type npm install @percy/cypress
+20.	In VSCode Terminal>Type npm install @percy/cli
+21.	In VSCode Terminal>Type npm install eslint-plugin-cypress
+22.	In VSCode Terminal>Type npm install cypress cypress-cucumber-preprocessor
+23.	In VSCode> install vscode extensions, the square stack icon on left side of vscode,  Cucumber(Gherkin) Full Support
