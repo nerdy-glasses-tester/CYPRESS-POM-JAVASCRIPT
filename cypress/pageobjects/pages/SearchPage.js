@@ -64,6 +64,7 @@ export default class SearchPage extends BasePage{
        
 
         cy.get('a[id="typeSelect"]>i.clearIcon').click({force:true})
+        cy.wait(3000)
         cy.get('a[id="typeSelect"]>i.clearIcon', {timeout: 3000}).should('have.attr','style','display: none;')
     }
 
@@ -78,16 +79,23 @@ export default class SearchPage extends BasePage{
         cy.get("a[title='Price']>span:nth-of-type(1)").should('text', pricerange)
 
         cy.get('.price-range').each(($el, index, $list) => {
-            $el=$el.text().toString().replace('$', '')
-            $el=$el.toString().replace(',', '')
-            $el=$el.toString().replace(' ', '')
-            let splitpricearr =$el.split('-')
+            let pricetxt =$el.text()
+            pricetxt = pricetxt.replace('$', '')
+            pricetxt = pricetxt.replace(',', '')
+            pricetxt = pricetxt.replace(' ', '')
+            let splitpricearr =pricetxt.split('-')
             let minprice = splitpricearr[0]
             cy.log(minprice)
             expect(Number(minprice)).to.be.within(minPrice, maxPrice)
+
+            if(index === 3)
+            {
+                return false
+            }
         })
 
         cy.get('a[title="Price"]>i.clearIcon').click({force:true})
+        cy.wait(3000)
         cy.get('a[title="Price"]>i.clearIcon', {timeout: 3000}).should('have.attr','style','display: none;')
     }
 
@@ -98,16 +106,35 @@ export default class SearchPage extends BasePage{
         cy.get(".maxBedOptions.active>li[data-value="+maxBed+"]").click({force:true})
 
         cy.get('.bed-range').each(($el,index, $list) => {
-            $el=$el.text().toString().replace('Studio', '')
-            $el=$el.replace('Bed', '')
-            $el=$el.replace(' ', '')
-            let splitbedarr=$el.split('-')
-            let maxbed = splitbedarr[1]
-            cy.log(maxbed)
-            expect(Number(maxbed)).to.be.within(minBed, maxBed)
+            let bedtxt=$el.text()
+            bedtxt=bedtxt.replace('Studio', '')
+            bedtxt=bedtxt.replace('Bed', '')
+            bedtxt=bedtxt.replace(' ', '')
+            if(bedtxt.indexOf('-'))
+            {
+                let splitbedarr=bedtxt.split('-')
+                let maxbed = splitbedarr[1]
+                cy.log(maxbed)
+                expect(Number(maxbed)).to.be.within(minBed, maxBed)
+            }
+            else{
+                if(bedtxt.indexOf(','))
+                {
+                    bedtxt=bedtxt.substr(1,5)
+                }
+                let bed = bedtxt
+                cy.log(bed)
+                expect(Number(bed)).to.be.greaterThan(Number(minBed)-1)
+            }
+
+            if(index === 3)
+            {
+                return false
+            }
         })
         
         cy.get('a[title="Beds"]>i.clearIcon').click({force:true})
+        cy.wait(3000)
         cy.get('a[title="Beds"]>i.clearIcon', {timeout: 3000}).should('have.attr','style','display: none;')
 
     }
@@ -144,6 +171,7 @@ export default class SearchPage extends BasePage{
             expect(available).to.include("Avail.")
         })
         cy.get("a[title='moveInDate']>i.clearIcon").click({force:true})
+        cy.wait(3000)
         cy.get("a[title='moveInDate']>i.clearIcon", {timeout: 3000})
         .should('have.attr', 'style', 'display: none;')
 
@@ -211,6 +239,7 @@ export default class SearchPage extends BasePage{
             })
 
             cy.get("a[id='lifestyleSelect']>i.clearIcon").click({force:true})
+            cy.wait(3000)
             cy.get("a[id='lifestyleSelect']>i.clearIcon", {timeout: 3000}).should('have.attr', 'style', 'display: none;')
         })
        

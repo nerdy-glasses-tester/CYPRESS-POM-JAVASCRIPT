@@ -60,3 +60,19 @@ Cypress.Commands.add('search', (keyword) => {
     cy.get('title').should('have.text', ` Apartments for Rent in ${keyword.split(',').join('')} | Apartments.com`)
 })
 
+Cypress.Commands.add('searchmorefilter', (keyword) => {
+    cy.get('#quickSearchLookup').should('be.visible')
+    cy.get('#quickSearchLookup').type(keyword)
+    let autosuggestion = cy.get('.item>.matchText').then(items => {
+        if(autosuggestion == keyword)
+        {
+            autosuggestion.click()
+        }
+    })
+    cy.get('.go').click()
+    cy.wait(5000)
+    cy.get('title').should('have.text', ` Apartments for Rent in ${keyword.split(',').join('')} | Apartments.com`)
+    cy.get("#advancedFiltersIcon", {timeout: 5000}).should('be.visible').click({force:true})
+    cy.wait(5000)
+    cy.get(".btn.btn-sm.btn-primary.done", {timeout:5000}).should('be.visible')
+})

@@ -2,6 +2,10 @@ import BasePage from '../BasePage'
 
 export default class SearchPageMoreFilters extends BasePage{
 
+    static searchmorefilter(keyword) {
+        cy.searchmorefilter(keyword)
+    }
+
     static search(keyword) {
         cy.search(keyword)
         cy.get("#advancedFiltersIcon", {timeout: 5000}).should('be.visible').click({force:true})
@@ -40,15 +44,18 @@ export default class SearchPageMoreFilters extends BasePage{
                 expect(bathlower).to.be.within(Number(1),Number(2))
                 expect(bathupper).to.be.greaterThan(Number(1))
                 cy.xpath(".//p[@class='rentInfoLabel' and contains(text(), 'Bathrooms')]/following-sibling::p")
-                cy.go('back')
-                cy.get(".imageContainer.carousel.slide>.carouselInner>.item.active ")
+                //cy.go('back')
+                //cy.get(".imageContainer.carousel.slide>.carouselInner>.item.active ")
         })
 
 
 
-        cy.get("#advancedFiltersIcon>.clearIcon",{timeout: 3000}).should('be.visible').click({force:true})
-        cy.get(".btn.btn-sm.btn-primary.done",{timeout: 3000}).should('be.visible').click({force:true})
-        cy.get("#advancedFiltersIcon>.clearIcon",{timeout: 3000}).should('not.be.visible').should('have.attr', 'style', 'z-index: 10; display: none;')
+        //cy.get("#advancedFiltersIcon>.clearIcon",{timeout: 3000}).should('be.visible').click({force:true})
+        //cy.get(".btn.btn-sm.btn-primary.done",{timeout: 3000}).should('be.visible').click({force:true})
+        //cy.get("#advancedFiltersIcon>.clearIcon",{timeout: 3000}).should('not.be.visible').should('have.attr', 'style', 'z-index: 10; display: none;')
 
     }
+
+
+
 }

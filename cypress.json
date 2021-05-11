@@ -1,6 +1,6 @@
 {
   "watchForFilesChanges": false,
-  "chromeWebSecurity": false,
+  "chromeWebSecurity": true,
   "viewportWidth": 1000,
   "viewportHeight": 600,
   "waitForAnimations": true,
