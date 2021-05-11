@@ -4,7 +4,6 @@ import SearchPageMoreFilters from '../../pageobjects/pages/SearchPageMoreFilters
 
 describe('Search for a rental with more filters test', () => {
     before(function() {
-        cy.visit(url)
         SearchPageMoreFilters.searchmorefilter(keyword)
     })
     

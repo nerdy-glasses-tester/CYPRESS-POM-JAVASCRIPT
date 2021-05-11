@@ -24,7 +24,7 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-import {keyword} from '../config'
+import {url, keyword} from '../config'
 import { addMatchImageSnapshotCommand } from 'cypress-image-snapshot/command'
 
 addMatchImageSnapshotCommand()
@@ -47,6 +47,7 @@ Cypress.Commands.add('setResolution', size => {
 })
 
 Cypress.Commands.add('search', (keyword) => {
+    cy.visit(url)
     cy.get('#quickSearchLookup').should('be.visible')
     cy.get('#quickSearchLookup').type(keyword)
     let autosuggestion = cy.get('.item>.matchText').then(items => {
@@ -61,6 +62,7 @@ Cypress.Commands.add('search', (keyword) => {
 })
 
 Cypress.Commands.add('searchmorefilter', (keyword) => {
+    cy.visit(url)
     cy.get('#quickSearchLookup').should('be.visible')
     cy.get('#quickSearchLookup').type(keyword)
     let autosuggestion = cy.get('.item>.matchText').then(items => {

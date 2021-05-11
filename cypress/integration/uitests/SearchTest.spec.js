@@ -4,7 +4,6 @@ import SearchPage from '../../pageobjects/pages/SearchPage'
 
 describe('Search for a rental with filters test', () => {
     before(function() {
-        cy.visit(url)
         SearchPage.search(keyword)
     })
     
