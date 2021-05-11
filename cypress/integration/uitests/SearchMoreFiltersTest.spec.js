@@ -7,7 +7,7 @@ describe('Search for a rental with more filters test', () => {
         SearchPageMoreFilters.searchmorefilter(keyword)
     })
     
-    it(`Filter search results by more filter bath ${bath}`, () => {
+    it(`Browser: ${Cypress.browser.name} - Filter search results by more filter bath ${bath}`, () => {
         BasePage.setDesktopViewport()
         SearchPageMoreFilters.filterMoreByBaths(bath)
     })
