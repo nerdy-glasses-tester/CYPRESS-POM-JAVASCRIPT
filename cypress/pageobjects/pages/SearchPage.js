@@ -88,7 +88,7 @@ export default class SearchPage extends BasePage{
             cy.log(minprice)
             expect(Number(minprice)).to.be.within(minPrice, maxPrice)
 
-            if(index === 3)
+            if(index === 2)
             {
                 return false
             }
@@ -127,7 +127,7 @@ export default class SearchPage extends BasePage{
                 expect(Number(bed)).to.be.greaterThan(Number(minBed)-1)
             }
 
-            if(index === 3)
+            if(index === 2)
             {
                 return false
             }

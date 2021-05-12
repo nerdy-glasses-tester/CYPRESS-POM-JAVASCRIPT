@@ -24,7 +24,9 @@
     "prettier": "^2.2.1"
   },
   "devDependencies": {
-    "cypress": "^7.3.0",
+    "axe-core": "^4.2.0",
+    "cypress": "^6.3.0",
+    "cypress-axe": "^0.12.2",
     "cypress-failed-log": "^2.9.1"
   }
 }

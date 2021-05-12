@@ -12,7 +12,13 @@ Installation Steps:
 6.	In VS Code go to file and save workspace as and choose your project folder and select CYPRESS-POM-JAVASCRIPT.code-workspace and save it so you can always open up to this workspace for convenience
 7.	In VS Code>click on the bottom triangle icon to open the terminal>Go to the Terminal Tab
 8.	In VS Code Terminal>Type npm init and press ok for all questions (will create package.json file)
-9.	In VS Code Terminal>Type npm install cypress (will create node_modules folder and package-lock.json file)
+9.	(UPDATED) 
+In VS Code Terminal>Type npm install -D cypress@6.3.0 cypress-axe@0.12.2
+(will create node_modules folder and package-lock.json file)
+
+(OLD)
+In VS Code Terminal>Type npm install cypress (will create node_modules folder and package-lock.json file)
+
 10.	In VSCode Terminal>Type npm install prettier
 11.	In VSCode Terminal>Type npx cypress open (will create cypress folder and cypress.json file)
 12.	In VSCode Terminal>Type npm install cypress-xpath (this is so xpath can be used)
