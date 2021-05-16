@@ -7,4 +7,4 @@ export const minBed = 1
 export const maxBed = 3
 export const lifestyle = 'Senior Housing'
 export const bath = '2+'
-export const amenities = "Laundry Facilities, Fitness Center, Pool, Elevator, Air Conditioning, In Unit Washer & Dryer, Washer & Dryer Hookups, Wheelchair Access, Dishwasher, Parking, Dog Friendly, Cat Friendly"
+export const amenities = "Fitness Center, Pool, Elevator, Air Conditioning, Dog Friendly, Cat Friendly"

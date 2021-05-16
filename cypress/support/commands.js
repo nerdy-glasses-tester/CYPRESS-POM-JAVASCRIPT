@@ -46,6 +46,7 @@ Cypress.Commands.add('setResolution', size => {
     }
 })
 
+
 Cypress.Commands.add('search', (keyword) => {
     cy.visit(url)
     cy.get('#quickSearchLookup').should('be.visible')

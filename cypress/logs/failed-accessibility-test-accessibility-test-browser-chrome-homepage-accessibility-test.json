@@ -3,18 +3,16 @@
   "title": "Browser: chrome - Homepage Accessibility Test",
   "suiteName": "Accessibility test",
   "testName": "Accessibility test Browser: chrome - Homepage Accessibility Test",
-  "testError": "7 accessibility violations were detected: expected 7 to equal 0",
+  "testError": "6 accessibility violations were detected: expected 6 to equal 0",
   "testCommands": [
     "visit https://www.apartments.com",
-    "xhr  POST https://p.tvpixel.com/com.snowplowanalytics.snowplow/tp2",
     "readFile ./node_modules/axe-core/axe.min.js",
-    "a11y error! color-contrast on 50 Nodes",
+    "a11y error! color-contrast on 49 Nodes",
     "a11y error! empty-heading on 3 Nodes",
     "a11y error! heading-order on 1 Node",
     "a11y error! landmark-one-main on 1 Node",
-    "a11y error! link-name on 6 Nodes",
     "a11y error! meta-viewport on 1 Node",
     "a11y error! region on 7 Nodes",
-    "assert 7 accessibility violations were detected: expected **7** to equal **0**"
+    "assert 6 accessibility violations were detected: expected **6** to equal **0**"
   ]
 }

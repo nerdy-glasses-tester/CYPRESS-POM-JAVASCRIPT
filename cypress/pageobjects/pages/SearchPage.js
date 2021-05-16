@@ -6,6 +6,53 @@ export default class SearchPage extends BasePage{
         cy.search(keyword)
     }
 
+    static cleanUpFilters() {
+
+        let size = 0
+        size = cy.get('a[id="typeSelect"]>i.clearIcon').should('not.have.length', -1)
+        if(size > 0)
+        {
+            cy.get('a[id="typeSelect"]>i.clearIcon').click({force:true})
+            cy.wait(5000)
+            cy.get('a[id="typeSelect"]>i.clearIcon', {timeout: 3000}).should('have.attr','style','display: none;')
+        }
+
+        size = cy.get('a[title="Price"]>i.clearIcon').should('not.have.length', -1)
+        if(size > 0)
+        {
+            cy.get('a[title="Price"]>i.clearIcon').click({force:true})
+            cy.wait(5000)
+            cy.get('a[title="Price"]>i.clearIcon', {timeout: 3000}).should('have.attr','style','display: none;')
+        }
+
+        size = cy.get('a[title="Beds"]>i.clearIcon').should('not.have.length', -1)
+        if(size > 0)
+        {
+            cy.get('a[title="Beds"]>i.clearIcon').click({force:true})
+            cy.wait(5000)
+            cy.get('a[title="Beds"]>i.clearIcon', {timeout: 3000}).should('have.attr','style','display: none;')
+        }
+
+        size = cy.get("a[title='moveInDate']>i.clearIcon").should('not.have.length', -1)
+        if(size > 0)
+        {
+            cy.get("a[title='moveInDate']>i.clearIcon").click({force:true})
+            cy.wait(5000)
+            cy.get("a[title='moveInDate']>i.clearIcon", {timeout: 3000}).should('have.attr', 'style', 'display: none;')
+        }
+
+        size = cy.get("a[id='lifestyleSelect']>i.clearIcon").should('not.have.length', -1)
+        if(size>0)
+        {
+            cy.get("a[id='lifestyleSelect']>i.clearIcon").click({force:true})
+            cy.wait(5000)
+            cy.get("a[id='lifestyleSelect']>i.clearIcon", {timeout: 3000}).should('have.attr', 'style', 'display: none;')
+        }
+
+
+
+    }
+
     static filterByHousingType(housingtype){
         cy.get('#typeSelect', { timeout: 3000 }).click({force:true})
 
@@ -63,9 +110,6 @@ export default class SearchPage extends BasePage{
         }
        
 
-        cy.get('a[id="typeSelect"]>i.clearIcon').click({force:true})
-        cy.wait(3000)
-        cy.get('a[id="typeSelect"]>i.clearIcon', {timeout: 3000}).should('have.attr','style','display: none;')
     }
 
     static filterByPrice(minPrice, maxPrice) {
@@ -88,15 +132,15 @@ export default class SearchPage extends BasePage{
             cy.log(minprice)
             expect(Number(minprice)).to.be.within(minPrice, maxPrice)
 
+            /*** 
             if(index === 2)
             {
                 return false
             }
+            ***/
         })
 
-        cy.get('a[title="Price"]>i.clearIcon').click({force:true})
-        cy.wait(3000)
-        cy.get('a[title="Price"]>i.clearIcon', {timeout: 3000}).should('have.attr','style','display: none;')
+
     }
 
     static filterByBeds(minBed, maxBed){
@@ -127,15 +171,14 @@ export default class SearchPage extends BasePage{
                 expect(Number(bed)).to.be.greaterThan(Number(minBed)-1)
             }
 
+            /*** 
             if(index === 2)
             {
                 return false
             }
+            ***/
         })
         
-        cy.get('a[title="Beds"]>i.clearIcon').click({force:true})
-        cy.wait(3000)
-        cy.get('a[title="Beds"]>i.clearIcon', {timeout: 3000}).should('have.attr','style','display: none;')
 
     }
 
@@ -170,10 +213,6 @@ export default class SearchPage extends BasePage{
             let available = $el.text()
             expect(available).to.include("Avail.")
         })
-        cy.get("a[title='moveInDate']>i.clearIcon").click({force:true})
-        cy.wait(3000)
-        cy.get("a[title='moveInDate']>i.clearIcon", {timeout: 3000})
-        .should('have.attr', 'style', 'display: none;')
 
     }
 
@@ -238,9 +277,7 @@ export default class SearchPage extends BasePage{
                 })
             })
 
-            cy.get("a[id='lifestyleSelect']>i.clearIcon").click({force:true})
-            cy.wait(3000)
-            cy.get("a[id='lifestyleSelect']>i.clearIcon", {timeout: 3000}).should('have.attr', 'style', 'display: none;')
+
         })
        
 
