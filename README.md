@@ -27,7 +27,7 @@ In VS Code Terminal>Type npm install cypress (will create node_modules folder an
 15.	In VSCode Terminal>Type npx cypress open (select the browser in the upper right dropdown and select run 2 integration specs on the upper right)
 16.	Or in VSCode Terminal>Type npx cypress run (to run in Electron browser and get logs and video and screenshots)
 17.	Or in VSCode Terminal>Type npx cypress run - - browser chrome (passes gets logs and video and screenshots)
-18.	Or in VSCode Terminal>Type npx cypress run - - browser firefox (1 test keeps failing but it passes in reality so false failure but runs well in npx cypress open though; Still looking into resolving it.)
+18.	Or in VSCode Terminal>Type npx cypress run - - browser firefox (passes gets logs and video and screenshots)
 
 OPTIONAL – my project is not using at moment though have installed
 
