@@ -24,20 +24,22 @@ In VS Code Terminal>Type npm install cypress (will create node_modules folder an
 12.	In VSCode Terminal>Type npm install cypress-xpath (this is so xpath can be used)
 13.	In VSCode Terminal>Type npm install cypress-image-snapshot
 14.	In VSCode Terminal>Type npm install –save-dev cypress-failed-log
-15.	In VSCode Terminal>Type npx cypress open (select the browser in the upper right dropdown and select run 2 integration specs on the upper right)
-16.	Or in VSCode Terminal>Type npx cypress run (to run in Electron browser and get logs and video and screenshots)
-17.	Or in VSCode Terminal>Type npx cypress run - - browser chrome (passes gets logs and video and screenshots)
-18.	Or in VSCode Terminal>Type npx cypress run - - browser firefox (passes gets logs and video and screenshots)
+15. In VSCode Terminal>Type npm install --save-dev cypress axe-core
+16. In VSCode Terminal>Type npm install --save-dev cypress-axe
+17.	In VSCode Terminal>Type npx cypress open (select the browser in the upper right dropdown and select run 2 integration specs on the upper right)
+18.	Or in VSCode Terminal>Type npx cypress run (to run in Electron browser and get logs and video and screenshots)
+19.	Or in VSCode Terminal>Type npx cypress run - - browser chrome (passes gets logs and video and screenshots)
+20.	Or in VSCode Terminal>Type npx cypress run - - browser firefox (passes gets logs and video and screenshots)
 
 OPTIONAL – my project is not using at moment though have installed
 
-19.	In VSCode Terminal>Type npm install @percy/cypress
+21.	In VSCode Terminal>Type npm install @percy/cypress
 
-20.	In VSCode Terminal>Type npm install @percy/cli
+22.	In VSCode Terminal>Type npm install @percy/cli
 
-21.	In VSCode Terminal>Type npm install eslint-plugin-cypress
+23.	In VSCode Terminal>Type npm install eslint-plugin-cypress
 
-22.	In VSCode Terminal>Type npm install cypress cypress-cucumber-preprocessor
+24.	In VSCode Terminal>Type npm install cypress cypress-cucumber-preprocessor
 
-23.	In VSCode> install vscode extensions, the square stack icon on left side of vscode,  Cucumber(Gherkin) Full Support
+25.	In VSCode> install vscode extensions, the square stack icon on left side of vscode,  Cucumber(Gherkin) Full Support
 
