@@ -8,3 +8,6 @@ export const maxBed = 3
 export const lifestyle = 'Senior Housing'
 export const bath = '2+'
 export const amenities = "Fitness Center, Pool, Elevator, Air Conditioning, Dog Friendly, Cat Friendly"
+export const morekeyword = 'Stainless Steel Appliance'
+export const minsqft = 1000
+export const maxsqft = 1500

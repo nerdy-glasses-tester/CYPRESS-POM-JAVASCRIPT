@@ -324,6 +324,60 @@ export default class SearchPageMoreFilters extends BasePage{
 
             }
 
+            cy.go('back')
+
+    }
+
+    static filterMoreByKeyword(morekeyword){
+        cy.get('#keywordInput').type(morekeyword, {force:true})
+        cy.get('.btn.btn-sm.btn-primary.done').click({force:true})
+        cy.get('.item.active').first().click({force:true})
+        cy.get(".subSpec>ul>li.specInfo.uniqueAmenity>span").each(($el, index, $list) => {
+            let text = $el.text()
+            if(text === morekeyword)
+            {
+                expect(text).to.be.equal(morekeyword)
+            }
+
+        })
+
+        cy.go('back')
+    }
+
+    static filterMoreBySqft(minsqft, maxsqft){
+        cy.get("button[data-id='minSF']>span.caret").click({force:true})
+        cy.get(".text").each(($el, index, $list) => {
+            let text = $el.text()
+            if(text === minsqft)
+            {
+                $el.scrollIntoView()
+                cy.click({force:true})
+            }
+        })
+        
+        cy.get("button[data-id='maxSF']>span.caret").click({force:true})
+        cy.get(".text").each(($el, index, $list) => {
+            let text = $el.text()
+            if(text === maxsqft)
+            {
+                $el.scrollIntoView()
+                cy.click({force:true})
+            }
+        })
+        cy.get('.btn.btn-sm.btn-primary.done').click({force:true})
+        cy.get('.item.active').first().click({force:true})
+        cy.xpath('.//p[@class="rentInfoLabel" and contains(text(), "Square Feet")]//following-sibling::p[@class="rentInfoDetail"]')
+        .scrollIntoView().then(($ela) => {
+            let text = $ela.text()
+            text = text.replace(' sq ft', '')
+            text = text.replace(' ', '')
+            text = text.replace(',', '')
+            let arr = []
+            arr = text.split('-')
+            expect(Number(arr[1])).to.be.lessThan(maxsqft+100)
+        })
+        
+        cy.go('back')
     }
 
 }

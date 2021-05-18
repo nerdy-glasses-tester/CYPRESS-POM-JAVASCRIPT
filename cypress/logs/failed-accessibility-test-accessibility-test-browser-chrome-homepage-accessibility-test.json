@@ -6,6 +6,7 @@
   "testError": "6 accessibility violations were detected: expected 6 to equal 0",
   "testCommands": [
     "visit https://www.apartments.com",
+    "xhr  POST https://p.tvpixel.com/com.snowplowanalytics.snowplow/tp2",
     "readFile ./node_modules/axe-core/axe.min.js",
     "a11y error! color-contrast on 49 Nodes",
     "a11y error! empty-heading on 3 Nodes",

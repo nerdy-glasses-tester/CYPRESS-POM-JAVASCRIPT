@@ -12,5 +12,8 @@
   "responseTimeout": 15000,
   "video": true,
   "failOnStatusCode": false,
-  "projectId": "3yd5q4"
+  "projectId": "3yd5q4",
+  "html": {
+    "scroll-behavior": "smooth"
+  }
 }

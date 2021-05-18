@@ -8,6 +8,7 @@
     "viewport macbook-13",
     "get #lifestyleSelect",
     "click {force: true, animationdistancethreshold: 20}",
+    "xhr  POST https://www.apartments.com/services/search/",
     "get input[type='radio'][name='lifestyle-select']",
     "contains Student ",
     "contains Senior Housing ",
@@ -20,7 +21,9 @@
     "get .checkAvailability.btn",
     "assert expected **[ <button.checkAvailability.btn>, 23 more... ]** to be **visible**",
     "wait 5000",
-    "new url https://www.apartments.com/houses-townhomes/irvine-ca/1-to-3-bedrooms-over-1700/senior-housing/?bb=w-0lr7h7jNt5i3i9O&mid=20210601",
+    "xhr  POST https://www.apartments.com/services/search/",
+    "new url https://www.apartments.com/houses-townhomes/irvine-ca/max-3-bedrooms-over-1700/senior-housing/?bb=umsl283jjN_5yqjtH&mid=20210601",
+    "new url https://www.apartments.com/houses-townhomes/irvine-ca/max-3-bedrooms-over-1700/senior-housing/?bb=w-0lr7h7jNt5i3i9O&mid=20210601",
     "get .count[id=mapResultBox]",
     "assert expected **<h3#mapResultBox.count>** to be **visible**"
   ]

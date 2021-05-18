@@ -1,4 +1,4 @@
-import {url,keyword,bath,amenities} from '../../config'
+import {url, keyword, bath, amenities, morekeyword, minsqft, maxsqft} from '../../config'
 import BasePage from '../../pageobjects/BasePage'
 import SearchPageMoreFilters from '../../pageobjects/pages/SearchPageMoreFilters'
 
@@ -15,6 +15,18 @@ describe('Search for a rental with more filters test', () => {
     it(`Filter search results by more filter amenities: ${amenities}`, () =>{
         BasePage.setDesktopViewport()
         SearchPageMoreFilters.filterMoreByAmenities(amenities)
+        SearchPageMoreFilters.cleanUpFilters()
+    })
+
+    it(`Filter search results by more filter keyword: ${morekeyword}`, () =>{
+        BasePage.setDesktopViewport()
+        SearchPageMoreFilters.filterMoreByKeyword(morekeyword)
+        SearchPageMoreFilters.cleanUpFilters()
+    })
+
+    it(`Filter search results by more filter square feet: ${minsqft} - ${maxsqft}`, () =>{
+        BasePage.setDesktopViewport()
+        SearchPageMoreFilters.filterMoreBySqft(minsqft, maxsqft)
         SearchPageMoreFilters.cleanUpFilters()
     })
 
