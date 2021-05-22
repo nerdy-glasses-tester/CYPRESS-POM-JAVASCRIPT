@@ -249,7 +249,7 @@ export default class SearchPage extends BasePage{
                let str = ''
                str = $result.text()
                str=str.replace(',','')
-               if(lifestyle==='Student Housing')
+               if(lifestyle==='Student')
                {
                 str = str.replace(' Student Apartments Available', '')
                }
@@ -272,7 +272,7 @@ export default class SearchPage extends BasePage{
  
                cy.log(str)
                cy.get(".property-information>.property-link>.property-title>.js-placardTitle.title").then(($el) => {
-                    cy.contains('Senior')
+                    cy.contains(lifestyle)
                     cy.get(".property-title").should('have.length', str)
                 })
             })

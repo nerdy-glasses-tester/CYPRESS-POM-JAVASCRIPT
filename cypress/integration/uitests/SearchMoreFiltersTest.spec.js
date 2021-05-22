@@ -6,15 +6,10 @@ describe('Search for a rental with more filters test', () => {
     before(function() {
         SearchPageMoreFilters.searchmorefilter(keyword)
     })
-    
-    it(`Browser: ${Cypress.browser.name} - Filter search results by more filter bath ${bath}`, () => {
-        BasePage.setDesktopViewport()
-        SearchPageMoreFilters.filterMoreByBaths(bath)
-    })
 
-    it(`Filter search results by more filter amenities: ${amenities}`, () =>{
+    it(`Filter search results by more filter square feet: ${minsqft} - ${maxsqft}`, () =>{
         BasePage.setDesktopViewport()
-        SearchPageMoreFilters.filterMoreByAmenities(amenities)
+        SearchPageMoreFilters.filterMoreBySqft(minsqft, maxsqft)
         SearchPageMoreFilters.cleanUpFilters()
     })
 
@@ -24,9 +19,15 @@ describe('Search for a rental with more filters test', () => {
         SearchPageMoreFilters.cleanUpFilters()
     })
 
-    it(`Filter search results by more filter square feet: ${minsqft} - ${maxsqft}`, () =>{
+    it(`Filter search results by more filter amenities: ${amenities}`, () =>{
         BasePage.setDesktopViewport()
-        SearchPageMoreFilters.filterMoreBySqft(minsqft, maxsqft)
+        SearchPageMoreFilters.filterMoreByAmenities(amenities)
+        SearchPageMoreFilters.cleanUpFilters()
+    })
+
+    it(`Browser: ${Cypress.browser.name} - Filter search results by more filter bath ${bath}`, () => {
+        BasePage.setDesktopViewport()
+        SearchPageMoreFilters.filterMoreByBaths(bath)
         SearchPageMoreFilters.cleanUpFilters()
     })
 
